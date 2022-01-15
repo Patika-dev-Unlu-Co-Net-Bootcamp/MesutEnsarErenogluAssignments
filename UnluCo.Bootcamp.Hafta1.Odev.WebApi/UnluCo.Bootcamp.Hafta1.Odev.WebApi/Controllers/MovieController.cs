@@ -45,7 +45,7 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
 
         }
         /// <summary>
-        /// This function returns a movie which has same Id which mentioned in the url
+        /// This function returns a movie which is active and has same Id which mentioned in the url
         /// </summary>
         /// <param name="movieId"></param>
         /// <returns></returns>
@@ -69,7 +69,7 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
             return Ok(getMovieDetailQueryVM);
         }
         /// <summary>
-        /// This function creates and store in the database regarding to model from body 
+        /// This function creates a movie and store in the database regarding to model from body 
         /// </summary>
         /// <param name="newMovie"></param>
         /// <returns></returns>
@@ -91,7 +91,7 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
             return StatusCode(201, new { message = $"{command.Model.MovieName} oluşturuldu!" });
         }
         /// <summary>
-        /// This funciton updates a movie which has Id that mentioned in the url 
+        /// This funciton updates a movie which has Id that mentioned in the url regarding to model from body
         /// </summary>
         /// <param name="movieId"></param>
         /// <param name="Model"></param>
