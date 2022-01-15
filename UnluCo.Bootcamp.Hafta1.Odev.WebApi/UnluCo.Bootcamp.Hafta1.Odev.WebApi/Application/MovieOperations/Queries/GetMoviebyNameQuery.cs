@@ -19,8 +19,8 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Application.MovieOperations.Queries
         }
         public GetMoviebyNameQueryVM Handle()
         {
-            // Todo: Arama koşulları güncellenecek
-            var movie = _db.Movies.Include(x => x.Director).Include(x => x.Genre).Where(x => x.MovieName.ToLower().Trim() == MovieName.ToLower().Trim() && x.IsActive == true).FirstOrDefault();
+            // Todo: Arama koşulları güncellenebilir
+            var movie = _db.Movies.Include(x => x.Director).Include(x => x.Genre).Where(x => x.MovieName.ToLower().Trim().Contains(MovieName.ToLower().Trim()) && x.IsActive == true).FirstOrDefault();
             if (movie == null)
             {
                 throw new InvalidOperationException("Aradığınız film bulunamadı");
