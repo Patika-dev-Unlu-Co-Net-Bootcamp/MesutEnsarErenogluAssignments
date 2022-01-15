@@ -25,7 +25,11 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
             _db = db;
             _mapper = mapper;
         }
-        [HttpGet]
+        /// <summary>
+        /// This function return all movies which are active in the database 
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]           
         public IActionResult GetMovies()
         {
             try
@@ -40,6 +44,11 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
             }
 
         }
+        /// <summary>
+        /// This function returns a movie which has same Id which mentioned in the url
+        /// </summary>
+        /// <param name="movieId"></param>
+        /// <returns></returns>
         [HttpGet("{movieId}")]
         public IActionResult GetbyMovieId(int movieId)
         {
@@ -59,6 +68,11 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
             }
             return Ok(getMovieDetailQueryVM);
         }
+        /// <summary>
+        /// This function creates and store in the database regarding to model from body 
+        /// </summary>
+        /// <param name="newMovie"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult CreateMovie([FromBody] CreateMovieCommandVM newMovie)
         {
@@ -76,6 +90,12 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
             }
             return StatusCode(201, new { message = $"{command.Model.MovieName} oluşturuldu!" });
         }
+        /// <summary>
+        /// This funciton updates a movie which has Id that mentioned in the url 
+        /// </summary>
+        /// <param name="movieId"></param>
+        /// <param name="Model"></param>
+        /// <returns></returns>
         [HttpPut("{movieId}")]
         public IActionResult UpdateMovie(int movieId,[FromBody]UpdateMovieCommandVM Model)
         {
@@ -94,6 +114,12 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
             }
             return Ok(new { message = "Güncelleme tamamlandı!" });
         }
+        /// <summary>
+        /// This function makes a movie's status inactive. 
+        /// </summary>
+        /// <param name="movieId"></param>
+        /// <param name="Model"></param>
+        /// <returns></returns>
         [HttpPatch("{movieId}")]
         public IActionResult DeleteMovie(int movieId, [FromBody] DeleteMovieCommandVM Model)
         {
@@ -112,6 +138,11 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
             }
             return Ok(new {message = "Seçilen film silindi" });
         }
+        /// <summary>
+        /// This function deletes a movie from database permanently
+        /// </summary>
+        /// <param name="movieId"></param>
+        /// <returns></returns>
         [HttpDelete("{movieId}")]
         public IActionResult DeleteMoviePermanently(int movieId)
         {
@@ -131,6 +162,11 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
             }
             return Ok(new { message = "Seçilen film kalıcı olarak silindi" });
         }
+        /// <summary>
+        /// This function provides a movie which has same name with the name which mentioned in the query
+        /// </summary>
+        /// <param name="MovieName"></param>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult GetMoviebyName([FromQuery] string MovieName)
         {
@@ -150,6 +186,30 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
                 return BadRequest(ex.Message);
             }
             return Ok(vm);
+        }
+        /// <summary>
+        /// This function add actors which has ID in the array from body to movie which has Id which mentiond in the url
+        /// </summary>
+        /// <param name="movieId"></param>
+        /// <param name="Model"></param>
+        /// <returns></returns>
+        [HttpPut("{movieId}")]
+        public  IActionResult AddActorstoMovie(int movieId,[FromBody] AddActorstoMovieCommandVM Model)
+        {
+            try
+            {
+                AddActorstoMovieCommand command = new AddActorstoMovieCommand(_db);
+                command.MovieId = movieId;
+                command.Model = Model;
+                AddActorstoMovieCommandValidator validator = new AddActorstoMovieCommandValidator();
+                validator.ValidateAndThrow(command);
+                command.Handle();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            return Ok(new {message="Belirtilen aktörler eklendi!" });
         }
     }
 }

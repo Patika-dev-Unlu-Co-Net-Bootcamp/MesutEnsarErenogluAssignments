@@ -42,15 +42,15 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Context
                         new Actor { FirstName= "Aaron", LastName="Eckhart"}
                     );
                 context.MovieAndActors.AddRange(
-                        new MovieAndActors { ActorId=1,MovieId=1},
-                        new MovieAndActors { ActorId=2,MovieId=1},
-                        new MovieAndActors { ActorId=3,MovieId=1},
-                        new MovieAndActors { ActorId=4,MovieId=2},
-                        new MovieAndActors { ActorId=5,MovieId=2},
-                        new MovieAndActors { ActorId=6,MovieId=2},
-                        new MovieAndActors { ActorId=7,MovieId=3},
-                        new MovieAndActors { ActorId=8,MovieId=3},
-                        new MovieAndActors { ActorId=9,MovieId=3}
+                        new MovieAndActor { ActorId=1,MovieId=1},
+                        new MovieAndActor { ActorId=2,MovieId=1},
+                        new MovieAndActor { ActorId=3,MovieId=1},
+                        new MovieAndActor { ActorId=4,MovieId=2},
+                        new MovieAndActor { ActorId=5,MovieId=2},
+                        new MovieAndActor { ActorId=6,MovieId=2},
+                        new MovieAndActor { ActorId=7,MovieId=3},
+                        new MovieAndActor { ActorId=8,MovieId=3},
+                        new MovieAndActor { ActorId=9,MovieId=3}
                     );
 
                 context.SaveChanges();

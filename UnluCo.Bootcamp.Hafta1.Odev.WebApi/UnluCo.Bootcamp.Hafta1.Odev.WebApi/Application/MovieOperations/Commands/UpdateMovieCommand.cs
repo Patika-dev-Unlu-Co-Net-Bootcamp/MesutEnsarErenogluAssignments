@@ -25,7 +25,7 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Application.MovieOperations.Command
             var movie = _db.Movies.SingleOrDefault(x => x.Id == MovieId &&  x.IsActive==true);
             if (movie == null)
             {
-                throw new InvalidOperationException("Aradığınız film bulunamadı!");
+                throw new InvalidOperationException("Güncelleme yapmak istediğiniz film bulunamadı!");
             }
             if (_db.Directors.Any(x => x.Id == Model.DirectorId) == false)
             {

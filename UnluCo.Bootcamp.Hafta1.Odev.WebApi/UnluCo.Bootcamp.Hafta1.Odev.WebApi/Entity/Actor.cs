@@ -25,6 +25,6 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Entity
             }
         }
 
-        public virtual IEnumerable<MovieAndActors> MovieAndActors { get; set; }
+        public virtual IEnumerable<MovieAndActor> MovieAndActors { get; set; }
     }
 }

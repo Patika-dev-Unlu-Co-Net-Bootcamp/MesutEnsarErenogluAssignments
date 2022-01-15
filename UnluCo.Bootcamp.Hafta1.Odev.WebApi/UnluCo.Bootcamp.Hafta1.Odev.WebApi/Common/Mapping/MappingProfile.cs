@@ -10,7 +10,7 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Common.Mapping
         public MappingProfile()
         {
 
-            //Movie  
+            #region Movie  
             //GetMovies
             CreateMap<Movie, GetMoviesQueryVM>()
                 .ForMember(dest => dest.DirectorName, opt => opt.MapFrom(src => src.Director.FullName))
@@ -31,7 +31,7 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Common.Mapping
             CreateMap<Movie, GetMoviebyNameQueryVM>()
                 .ForMember(dest => dest.DirectorName, opt => opt.MapFrom(src => src.Director.FullName))
                 .ForMember(dest => dest.GenreName, opt => opt.MapFrom(src => src.Genre.Name));
-
+            #endregion
 
         }
     }

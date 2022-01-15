@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Entity
 {
-    public class MovieAndActors
+    public class MovieAndActor
     {
         public int MovieId { get; set; }
         public virtual Movie Movie { get; set; }

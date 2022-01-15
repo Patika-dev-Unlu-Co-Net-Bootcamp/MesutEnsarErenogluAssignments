@@ -13,21 +13,21 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Context
         public DbSet<Director> Directors { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Movie> Movies { get; set; }
-        public DbSet<MovieAndActors> MovieAndActors { get; set; }
+        public DbSet<MovieAndActor> MovieAndActors { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<MovieAndActors>()
+            modelBuilder.Entity<MovieAndActor>()
                 .HasKey(x => new { x.MovieId, x.ActorId });
 
-            modelBuilder.Entity<MovieAndActors>()
+            modelBuilder.Entity<MovieAndActor>()
                 .HasOne<Movie>(x => x.Movie)
                 .WithMany(x => x.MovieAndActors)
                 .HasForeignKey(x => x.MovieId);
 
-            modelBuilder.Entity<MovieAndActors>()
+            modelBuilder.Entity<MovieAndActor>()
                 .HasOne<Actor>(x => x.Actor)
                 .WithMany(x => x.MovieAndActors)
                 .HasForeignKey(x => x.ActorId);
