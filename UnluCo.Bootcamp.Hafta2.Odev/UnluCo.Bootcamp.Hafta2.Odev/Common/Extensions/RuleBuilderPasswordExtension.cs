@@ -4,7 +4,7 @@ namespace UnluCo.Bootcamp.Hafta2.Odev.Common.Extensions
 {
     public static class RuleBuilderPasswordExtension
     {
-        //Bu extension ile modelden alınan password customize edilerek kontrol edilebilecektir.
+        //This function validates password which comes from any model. 
         public static IRuleBuilder<T, string> Password<T>(this IRuleBuilder<T, string> ruleBuilder, int minimumLength = 5)
         {
             var options = ruleBuilder
