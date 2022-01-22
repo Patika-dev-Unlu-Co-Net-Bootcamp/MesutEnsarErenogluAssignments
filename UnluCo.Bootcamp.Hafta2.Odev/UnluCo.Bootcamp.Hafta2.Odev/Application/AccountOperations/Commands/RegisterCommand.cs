@@ -26,7 +26,7 @@ namespace UnluCo.Bootcamp.Hafta2.Odev.Application.AccountOperations.Commands
                 throw new InvalidOperationException("Kayıtlı kullanıcı bulunmaktadır!");
             }
             var user = _mapper.Map<AppUser>(Model);
-            if (user.UserName == null)
+            if (string.IsNullOrEmpty(user.UserName))
             {
                 user.UserName = user.Email;
             }

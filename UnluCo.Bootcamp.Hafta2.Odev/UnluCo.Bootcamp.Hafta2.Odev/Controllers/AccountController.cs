@@ -8,7 +8,7 @@ using UnluCo.Bootcamp.Hafta2.Odev.ViewModels.Account;
 
 namespace UnluCo.Bootcamp.Hafta2.Odev.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]s/[action]")]
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -21,20 +21,21 @@ namespace UnluCo.Bootcamp.Hafta2.Odev.Controllers
             _mapper = mapper;
         }
         [HttpPost]
-        public IActionResult Register([FromForm]RegisterModel Model)
+        public IActionResult Register([FromBody]RegisterModel Model)
         {
             RegisterCommand command = new RegisterCommand(_db,_mapper);
             command.Model = Model;
             RegisterCommandValidator validator = new RegisterCommandValidator();
             validator.ValidateAndThrow(command);
+            command.Handle();
             return Ok();
         }
         [HttpPost]
-        public IActionResult Login([FromForm]LoginModel Model)
+        public IActionResult Login([FromBody]LoginModel Model)
         {
             LoginCommand command = new LoginCommand(_db);
             command.Model = Model;
-            
+            command.Handle();
             return Ok();
         }
     }
