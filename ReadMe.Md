@@ -8,4 +8,5 @@
 - Projede CustomException Middleware kullanılmaktadır. /Middleware/CustomGlobalException.cs
 - Request,Response ve Global hatalar loglanarak db'de kaydedilmektedir. /Services/DbLogger
 - Extension method örnekleri /Common/Extensions altında yer almaktadır.
+- Kullanıcı tarafından kayıt sırasında girilen mail adresinin örnek senaryoda gmail, hotmail yada outlook olması talep edilmektedir. Bu kurala uygunluğu kontrol eden custom attribute /Utilities klasörü altında yer almaktadır.
     
