@@ -30,13 +30,6 @@ namespace UnluCo.Bootcamp.Hafta2.Odev.Controllers
             command.Handle();
             return Ok();
         }
-        [HttpPost]
-        public IActionResult Login([FromBody]LoginModel Model)
-        {
-            LoginCommand command = new LoginCommand(_db);
-            command.Model = Model;
-            command.Handle();
-            return Ok();
-        }
+        
     }
 }
