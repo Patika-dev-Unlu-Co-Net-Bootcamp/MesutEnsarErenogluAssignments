@@ -10,12 +10,13 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Context
         {
 
         }
-        public DbSet<Actor> Actors { get; set; }
-        public DbSet<Director> Directors { get; set; }
-        public DbSet<Genre> Genres { get; set; }
-        public DbSet<Movie> Movies { get; set; }
-        public DbSet<MovieAndActor> MovieAndActors { get; set; }
-        public DbSet<AppUser> Users{ get; set; }
+
+        public DbSet<Actor> Actors { get ; set; }
+        public DbSet<Director> Directors { get; set ; }
+        public DbSet<Genre> Genres { get ; set ; }
+        public DbSet<Movie> Movies { get ; set ; }
+        public DbSet<MovieAndActor> MovieAndActors { get ; set ; }
+        public DbSet<AppUser> Users { get; set ; }
         public DbSet<Log> Logs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

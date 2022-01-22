@@ -38,8 +38,6 @@ namespace UnluCo.Bootcamp.Hafta2.Odev
 
             //DbLogger added
             services.AddScoped<ILoggerService, DbLogger>();
-
-            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

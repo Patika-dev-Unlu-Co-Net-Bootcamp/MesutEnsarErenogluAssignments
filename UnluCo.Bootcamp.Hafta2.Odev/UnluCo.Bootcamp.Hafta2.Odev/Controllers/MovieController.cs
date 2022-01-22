@@ -11,15 +11,20 @@ using UnluCo.Bootcamp.Hafta1.Odev.WebApi.Validators.Movie;
 using UnluCo.Bootcamp.Hafta1.Odev.WebApi.ViewModels.Movie;
 using UnluCo.Bootcamp.Hafta1.Odev.WebApi.ViewModels.Movie.CommandVMs;
 using UnluCo.Bootcamp.Hafta1.Odev.WebApi.ViewModels.Movie.QueryVMs;
+using UnluCo.Bootcamp.Hafta2.Odev.Utilities;
 
 namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
 {
     [Route("api/[controller]s/[action]")]
     [ApiController]
+    [TypeFilter(typeof(CustomAuthAttribute))]
+    //we can't add the attribute as usual on a controller since it has to get dependencies at runtime.
+    //The key difference is that TypeFilterAttribute will figure out what are the filters dependencies, fetches them through DI, and creates the filter.
     public class MovieController : ControllerBase
     {
         private readonly AppDbContext _db;
         private readonly IMapper _mapper;
+
         public MovieController(AppDbContext db,IMapper mapper)
         {
             _db = db;
@@ -29,7 +34,7 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
         /// This function return all movies which are active in the database 
         /// </summary>
         /// <returns></returns>
-        [HttpGet]           
+        [HttpGet]
         public IActionResult GetMovies()
         {
             try

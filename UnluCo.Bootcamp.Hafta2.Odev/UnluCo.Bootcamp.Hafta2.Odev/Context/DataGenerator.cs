@@ -2,8 +2,6 @@
 using System;
 using Microsoft.Extensions.DependencyInjection;
 using UnluCo.Bootcamp.Hafta1.Odev.WebApi.Entity;
-using Bogus;
-using System.Collections.Generic;
 
 namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Context
 {

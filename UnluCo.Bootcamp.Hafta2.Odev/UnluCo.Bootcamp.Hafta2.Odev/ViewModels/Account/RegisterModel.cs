@@ -9,7 +9,6 @@ namespace UnluCo.Bootcamp.Hafta2.Odev.ViewModels.Account
 {
     public class RegisterModel
     {
-        public string UserName { get; set; }
         [Required]
         //This attribute checks whether the email entered by the user has one of the accepted domains in the project.
         [ValidateEmailDomain(ErrorMessage ="Kaydolacağınız email adresi gmail,hotmail ya da outlook uzantılı olmalıdır.")] 
