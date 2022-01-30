@@ -22,6 +22,7 @@ namespace UnluCo.Bootcamp.Hafta2.Odev.Middlewares
             catch (System.Exception ex)
             {
                 await context.Response.WriteAsync(ex.Message);
+                //context.Response.StatusCode = 401;
                 _logger.Write(context);
             }
         }
