@@ -26,4 +26,9 @@ veritipleri ve ilişkiler belirtilmelidi.
 - eğitim bazlı öğrencileri listeleyen view yazıldı.
 ![View](https://github.com/Patika-dev-Unlu-Co-Net-Bootcamp/MesutEnsarErenogluAssignments/blob/main/UnluCo.Bootcamp.Hafta3.Odev/View.PNG)
 
-    
+## Hafta 4 [Ödev](https://github.com/Patika-dev-Unlu-Co-Net-Bootcamp/MesutEnsarErenogluAssignments/tree/main/UnluCo.Bootcamp.Hafta4.Odev)
+
+- Kullanıcı işlemleri için Asp.NET Core Identity altyapısı kullanıldı.
+- Api de yetkilendirme işlemleri için JWT kullanıldı. Movie Controller içerisindeki actionlara erişmek için token kullanılmalıdır. 
+- Movie Controller içerisinde her response da header a verinin oluşturulma/getirilme tarihi saati yazan result filter oluşturuldu.
+- Rol bazlı yapı tanımlandı. Create,Delete,Update işlemleri yalnızca admin tarafından gerçekleştirilebilir.    
