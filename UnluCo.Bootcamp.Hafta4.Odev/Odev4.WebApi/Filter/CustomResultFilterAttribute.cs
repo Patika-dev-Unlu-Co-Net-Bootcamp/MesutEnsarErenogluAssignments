@@ -10,8 +10,7 @@ namespace Odev4.WebApi.Filter
     {
         public void OnResultExecuted(ResultExecutedContext context)
         {
-            DateTime requestTime = DateTime.Now;
-            context.HttpContext.Response.Headers.Add("RequestTime", requestTime.ToString());
+            
         }
 
         public void OnResultExecuting(ResultExecutingContext context)

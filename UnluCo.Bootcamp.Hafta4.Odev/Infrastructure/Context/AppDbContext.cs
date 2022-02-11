@@ -1,11 +1,11 @@
 ﻿using Domain.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
 
 namespace Infrastructure.Context
 {
-    public class AppDbContext:IdentityDbContext<AppUser>
+    public class AppDbContext:IdentityDbContext<AppUser,IdentityRole,string>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

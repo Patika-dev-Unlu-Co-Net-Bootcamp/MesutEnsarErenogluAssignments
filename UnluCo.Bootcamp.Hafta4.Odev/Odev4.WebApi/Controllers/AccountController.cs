@@ -18,16 +18,29 @@ namespace Odev4.WebApi.Controllers
 
         
         private readonly IMapper _mapper;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
-        public AccountController(TokenGenerator tokenGenerator, UserManager<AppUser> userManager, IMapper mapper)
+        public AccountController(TokenGenerator tokenGenerator, UserManager<AppUser> userManager, IMapper mapper,RoleManager<IdentityRole> roleManager)
         {
             _tokenGenerator = tokenGenerator;
             _userManager = userManager;
             _mapper = mapper;
+            _roleManager = roleManager;
         }
         [HttpPost]
         public async Task<IActionResult> Register(AppUserRegisterModel userRegisterModel)
         {
+            var existUserResult = await _roleManager.RoleExistsAsync("user");
+            if (!existUserResult)
+            {
+                await _roleManager.CreateAsync(new IdentityRole { Name = "user", NormalizedName = "user" });
+            }
+            var existAdminResult = await _roleManager.RoleExistsAsync("admin");
+            if (!existAdminResult)
+            {
+                await _roleManager.CreateAsync(new IdentityRole { Name = "admin", NormalizedName = "admin" });
+            }
+
             if (!ModelState.IsValid)
             {
                 return BadRequest("Bilgiler eksik");

@@ -76,7 +76,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(6589),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(7045),
                             FirstName = "Tim",
                             IsActive = true,
                             LastName = "Robbins"
@@ -84,7 +84,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(6865),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(7466),
                             FirstName = "Morgan",
                             IsActive = true,
                             LastName = "Freeman"
@@ -92,7 +92,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(6868),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(7469),
                             FirstName = "Bob",
                             IsActive = true,
                             LastName = "Gunton"
@@ -100,7 +100,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(6869),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(7470),
                             FirstName = "Marlon",
                             IsActive = true,
                             LastName = "Brando"
@@ -108,7 +108,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(6871),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(7471),
                             FirstName = "Al",
                             IsActive = true,
                             LastName = "Pacino"
@@ -116,7 +116,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(6872),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(7472),
                             FirstName = "James",
                             IsActive = true,
                             LastName = "Caan"
@@ -124,7 +124,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(6873),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(7474),
                             FirstName = "Christian",
                             IsActive = true,
                             LastName = "Bale"
@@ -132,7 +132,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(6874),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(7475),
                             FirstName = "Heath",
                             IsActive = true,
                             LastName = "Ledger"
@@ -140,7 +140,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(6876),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(7476),
                             FirstName = "Aaron",
                             IsActive = true,
                             LastName = "Eckhart"
@@ -256,7 +256,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(5923),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(6305),
                             FirstName = "Frank",
                             IsActive = true,
                             LastName = "Darabont"
@@ -264,7 +264,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(6287),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(6710),
                             FirstName = "Francis",
                             IsActive = true,
                             LastName = "Coppola"
@@ -272,7 +272,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(6290),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(6713),
                             FirstName = "Christoper",
                             IsActive = true,
                             LastName = "Nolan"
@@ -303,35 +303,35 @@ namespace Application.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 146, DateTimeKind.Local).AddTicks(9350),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 931, DateTimeKind.Local).AddTicks(9584),
                             IsActive = true,
                             Name = "Drama"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 147, DateTimeKind.Local).AddTicks(8584),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 932, DateTimeKind.Local).AddTicks(8672),
                             IsActive = true,
                             Name = "Crime"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 147, DateTimeKind.Local).AddTicks(8601),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 932, DateTimeKind.Local).AddTicks(8686),
                             IsActive = true,
                             Name = "Action"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 147, DateTimeKind.Local).AddTicks(8603),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 932, DateTimeKind.Local).AddTicks(8688),
                             IsActive = true,
                             Name = "Adventure"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 147, DateTimeKind.Local).AddTicks(8604),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 932, DateTimeKind.Local).AddTicks(8689),
                             IsActive = true,
                             Name = "Romance"
                         });
@@ -364,7 +364,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(7142),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(7795),
                             IsActive = true,
                             MovieName = "The Shawshank Redemption",
                             ReleaseDate = new DateTime(1994, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -372,7 +372,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(7481),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(8164),
                             IsActive = true,
                             MovieName = "The Godfather",
                             ReleaseDate = new DateTime(1972, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -380,7 +380,7 @@ namespace Application.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2022, 2, 6, 20, 2, 46, 148, DateTimeKind.Local).AddTicks(7484),
+                            CreatedDate = new DateTime(2022, 2, 9, 11, 32, 2, 933, DateTimeKind.Local).AddTicks(8167),
                             IsActive = true,
                             MovieName = "The Dark Knight",
                             ReleaseDate = new DateTime(2008, 7, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -432,13 +432,13 @@ namespace Application.Migrations
                         new
                         {
                             Id = "1",
-                            ConcurrencyStamp = "d66c3e0c-6b19-4c40-8e22-4fdb53295aeb",
+                            ConcurrencyStamp = "3d5d5d8a-84fb-4f9b-bd0a-4fe9c1a894c9",
                             Name = "user"
                         },
                         new
                         {
                             Id = "2",
-                            ConcurrencyStamp = "abf40f6e-4563-43d5-af33-4c2c442c51c6",
+                            ConcurrencyStamp = "2223012f-5107-4eeb-9d78-fb8b88182a53",
                             Name = "admin"
                         });
                 });
