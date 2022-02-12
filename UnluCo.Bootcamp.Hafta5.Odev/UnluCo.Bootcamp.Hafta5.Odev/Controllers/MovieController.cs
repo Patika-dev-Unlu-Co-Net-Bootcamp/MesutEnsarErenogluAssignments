@@ -1,7 +1,12 @@
 ﻿using AutoMapper;
 using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Caching.Memory;
 using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
 using UnluCo.Bootcamp.Hafta1.Odev.WebApi.Application.MovieOperations.Commands;
 using UnluCo.Bootcamp.Hafta1.Odev.WebApi.Application.MovieOperations.Queries;
 using UnluCo.Bootcamp.Hafta1.Odev.WebApi.Application.MovieOperations.Queries.GetMovieDetail;
@@ -24,18 +29,24 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
     {
         private readonly AppDbContext _db;
         private readonly IMapper _mapper;
+        private readonly IMemoryCache _memoryCache;
+        private readonly IDistributedCache _distributedCache;
 
-        public MovieController(AppDbContext db,IMapper mapper)
+        public MovieController(AppDbContext db,IMapper mapper,IMemoryCache memoryCache, IDistributedCache distributedCache)
         {
             _db = db;
             _mapper = mapper;
+            _memoryCache = memoryCache;
+            _distributedCache = distributedCache;
         }
         /// <summary>
         /// With this method, sorting, searching and pagination operations can be performed between movies according to the parameters from query.
         /// </summary>
         /// <param name="queryParams"></param>
         /// <returns></returns>
+        
         [HttpGet]
+        [ResponseCache(Duration = 30000, Location = ResponseCacheLocation.Client, NoStore = false)]
         public IActionResult GetMoviesbyFilter([FromQuery] FilterQueryParams queryParams)
         {
             GetMoviesByFilterQuery query = new GetMoviesByFilterQuery(_db, _mapper);
@@ -43,7 +54,6 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
             var response = query.Handle();
 
             Response.Headers.Add("PaggingInfo", System.Text.Json.JsonSerializer.Serialize(response.PaggingInfo));
-
             return Ok(response.DataList);
         }
 
@@ -55,18 +65,22 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult GetMovies()
+        public async Task<IActionResult> GetMovies()
         {
-            try
+            var moviesFromCache = await _distributedCache.GetAsync("movies");
+            if (moviesFromCache == null)
             {
                 GetMoviesQuery query = new GetMoviesQuery(_db, _mapper);
                 var result = query.Handle();
+                if (result.Count >= 3)
+                {
+                   await _distributedCache.SetAsync("movies", Encoding.UTF8.GetBytes(System.Text.Json.JsonSerializer.Serialize(result)));
+                }
                 return Ok(result);
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
+            var movies = System.Text.Json.JsonSerializer.Deserialize<List<GetMoviesQueryVM>>(moviesFromCache);
+
+            return Ok(movies);
 
         }
         /// <summary>
@@ -77,14 +91,23 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
         [HttpGet("{movieId}")]
         public IActionResult GetMoviebyId(int movieId)
         {
-            GetMovieDetailQueryVM getMovieDetailQueryVM;
-            GetMovieDetailQuery query = new GetMovieDetailQuery(_db, _mapper);
-            query.MovieId = movieId;
-            GetMovieDetailQueryValidator validator = new GetMovieDetailQueryValidator();
-            validator.ValidateAndThrow(query);
+            _memoryCache.TryGetValue($"GetMovieDetail{movieId}", out GetMovieDetailQueryVM vm);
 
-            getMovieDetailQueryVM = query.Handle();
-            return Ok(getMovieDetailQueryVM);
+            if (vm == null)
+            {
+                GetMovieDetailQuery query = new GetMovieDetailQuery(_db, _mapper);
+                query.MovieId = movieId;
+                GetMovieDetailQueryValidator validator = new GetMovieDetailQueryValidator();
+                validator.ValidateAndThrow(query);
+
+                vm = query.Handle();
+                _memoryCache.Set($"GetMovieDetail{movieId}", vm, new MemoryCacheEntryOptions {
+                     AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(60),
+                     Priority = CacheItemPriority.Normal
+                });
+            }
+            
+            return Ok(vm);
         }
         /// <summary>
         /// This function creates a movie and store in the database regarding to model from body 

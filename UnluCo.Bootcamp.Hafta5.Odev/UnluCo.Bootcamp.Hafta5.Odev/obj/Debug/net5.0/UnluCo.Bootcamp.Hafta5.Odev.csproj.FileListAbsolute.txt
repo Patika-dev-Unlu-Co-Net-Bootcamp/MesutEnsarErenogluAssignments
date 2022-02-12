@@ -41,3 +41,9 @@ C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenogluAs
 C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenogluAssignments\UnluCo.Bootcamp.Hafta5.Odev\UnluCo.Bootcamp.Hafta5.Odev\obj\Debug\net5.0\ref\UnluCo.Bootcamp.Hafta5.Odev.dll
 C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenogluAssignments\UnluCo.Bootcamp.Hafta5.Odev\UnluCo.Bootcamp.Hafta5.Odev\obj\Debug\net5.0\UnluCo.Bootcamp.Hafta5.Odev.pdb
 C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenogluAssignments\UnluCo.Bootcamp.Hafta5.Odev\UnluCo.Bootcamp.Hafta5.Odev\obj\Debug\net5.0\UnluCo.Bootcamp.Hafta5.Odev.genruntimeconfig.cache
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenogluAssignments\UnluCo.Bootcamp.Hafta5.Odev\UnluCo.Bootcamp.Hafta5.Odev\bin\Debug\net5.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenogluAssignments\UnluCo.Bootcamp.Hafta5.Odev\UnluCo.Bootcamp.Hafta5.Odev\bin\Debug\net5.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenogluAssignments\UnluCo.Bootcamp.Hafta5.Odev\UnluCo.Bootcamp.Hafta5.Odev\bin\Debug\net5.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenogluAssignments\UnluCo.Bootcamp.Hafta5.Odev\UnluCo.Bootcamp.Hafta5.Odev\bin\Debug\net5.0\Microsoft.Extensions.Caching.Redis.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenogluAssignments\UnluCo.Bootcamp.Hafta5.Odev\UnluCo.Bootcamp.Hafta5.Odev\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\o_nea\source\repos\Patika-dev-Unlu-Co-Net-Bootcamp\MesutEnsarErenogluAssignments\UnluCo.Bootcamp.Hafta5.Odev\UnluCo.Bootcamp.Hafta5.Odev\bin\Debug\net5.0\StackExchange.Redis.StrongName.dll

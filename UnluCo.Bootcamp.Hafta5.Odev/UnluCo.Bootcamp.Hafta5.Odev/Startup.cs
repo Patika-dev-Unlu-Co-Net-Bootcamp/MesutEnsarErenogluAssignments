@@ -38,6 +38,13 @@ namespace UnluCo.Bootcamp.Hafta2.Odev
 
             //DbLogger added
             services.AddScoped<ILoggerService, DbLogger>();
+
+            services.AddMemoryCache();
+            services.AddResponseCaching();
+            services.AddDistributedRedisCache(opt =>
+            {
+                opt.Configuration = "localhost:6379";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,6 +65,8 @@ namespace UnluCo.Bootcamp.Hafta2.Odev
 
             //Usage of global exeption method
             app.UseCustomGlobalException();
+
+            app.UseResponseCaching();
 
             app.UseEndpoints(endpoints =>
             {

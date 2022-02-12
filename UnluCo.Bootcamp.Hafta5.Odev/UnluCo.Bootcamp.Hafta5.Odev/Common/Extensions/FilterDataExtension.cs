@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -29,7 +28,7 @@ namespace UnluCo.Bootcamp.Hafta2.Odev.Common.Extensions
 
             //Search
 
-            if (!string.IsNullOrEmpty(queryParams.SearchValue) || searchProps.Count > 0)
+            if (!string.IsNullOrEmpty(queryParams.SearchValue) && searchProps.Count > 0)
             {
                 ConstantExpression constant = Expression.Constant(queryParams.SearchValue.ToLower());
                 ParameterExpression parameter = Expression.Parameter(typeof(T), "e");
@@ -61,8 +60,22 @@ namespace UnluCo.Bootcamp.Hafta2.Odev.Common.Extensions
                 filterResponse.DataList = dbEntities.Where(lambda).Skip((queryParams.Page - 1) * queryParams.PageSize).Take(queryParams.PageSize).ToList();
             }
 
+            //Pagging
+
+            if (filterResponse.DataList == null)
+            {
+                filterResponse.DataList = dbEntities.Skip((queryParams.Page - 1) * queryParams.PageSize).Take(queryParams.PageSize).ToList();
+            }
+
+            FilterPaggingInfo paggingInfo = new FilterPaggingInfo();
+            paggingInfo.TotalItemCount = dbEntities.Count();
+            paggingInfo.CurrentPage = queryParams.Page;
+            paggingInfo.TotalPageCount = (int)Math.Ceiling((double)(dbEntities.Count() / queryParams.PageSize));
+
+            filterResponse.PaggingInfo = paggingInfo;
+
             //Sort
-            if (queryParams.SortOptions.Length > 0)
+            if (queryParams.SortOptions != null && queryParams.SortOptions.Length > 0)
             {
                 
                 foreach (var item in queryParams.SortOptions)
@@ -79,21 +92,6 @@ namespace UnluCo.Bootcamp.Hafta2.Odev.Common.Extensions
                     }
                 }
             }
-
-            //Pagging
-
-            if (filterResponse.DataList == null)
-            {
-                filterResponse.DataList = dbEntities.Skip((queryParams.Page - 1) * queryParams.PageSize).Take(queryParams.PageSize).ToList();
-            }
-
-            FilterPaggingInfo paggingInfo = new FilterPaggingInfo();
-            paggingInfo.TotalItemCount = dbEntities.Count();
-            paggingInfo.CurrentPage = queryParams.Page;
-            paggingInfo.TotalPageCount = (int)Math.Ceiling((double)(dbEntities.Count() / queryParams.PageSize));
-
-            filterResponse.PaggingInfo = paggingInfo;
-
 
             return filterResponse;
         }
