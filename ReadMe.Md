@@ -32,3 +32,10 @@ veritipleri ve ilişkiler belirtilmelidi.
 - Api de yetkilendirme işlemleri için JWT kullanıldı. Movie Controller içerisindeki actionlara erişmek için token kullanılmalıdır. 
 - Movie Controller içerisinde her response da header a verinin oluşturulma/getirilme tarihi saati yazan result filter oluşturuldu.
 - Rol bazlı yapı tanımlandı. Create,Delete,Update işlemleri yalnızca admin tarafından gerçekleştirilebilir.    
+
+## Hafta 5 [Ödev](https://github.com/Patika-dev-Unlu-Co-Net-Bootcamp/MesutEnsarErenogluAssignments/tree/main/UnluCo.Bootcamp.Hafta5.Odev)
+
+- Tek bir endpoint ten arama, filtreleme ve sıralama işlemlerini yapılan generic method yazıldı.
+GetMoviesbyFilter Actionı ile işlemler yapılabilir. (/Common/Extensions/FilterDataExtension.cs )
+- In memorycache ve response cache kullanımları yapıldı. (GetMoviesbyFilter - Response Cache / GetMoviebyId - Memory Cache)
+- Sorgu adedi 100'ü geçtiğinde distributed cache olarak redis e yazan ve okuyan bir cache kullanıldı. (GetMovies)
