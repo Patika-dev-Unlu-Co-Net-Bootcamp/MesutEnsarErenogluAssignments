@@ -72,7 +72,7 @@ namespace UnluCo.Bootcamp.Hafta1.Odev.WebApi.Controllers
             {
                 GetMoviesQuery query = new GetMoviesQuery(_db, _mapper);
                 var result = query.Handle();
-                if (result.Count >= 3)
+                if (result.Count >= 100) 
                 {
                    await _distributedCache.SetAsync("movies", Encoding.UTF8.GetBytes(System.Text.Json.JsonSerializer.Serialize(result)));
                 }
